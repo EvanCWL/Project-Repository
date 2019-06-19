@@ -1,0 +1,81 @@
+$gw2-characters-file-width: 342;
+$gw2-characters-file-height: 293;
+$gw2-characters-file-name: 'characters.png';
+
+%gw2-characters {
+	background: url('#{$gw2-img-path}#{$gw2-characters-file-name}') no-repeat;
+}
+
+$armorsmith: ('armorsmith', 49, 0, 48, 48, ());
+$artificer: ('artificer', 0, 196, 48, 48, ());
+$asura: ('asura', 0, 49, 48, 48, ());
+$berserker: ('berserker', 49, 49, 48, 48, ());
+$charr: ('charr', 98, 0, 48, 48, ());
+$chef: ('chef', 98, 49, 48, 48, ());
+$chronomancer: ('chronomancer', 0, 98, 48, 48, ());
+$daredevil: ('daredevil', 49, 98, 48, 48, ());
+$deadeye: ('deadeye', 98, 98, 48, 48, ());
+$dragonhunter: ('dragonhunter', 147, 0, 48, 48, ());
+$druid: ('druid', 147, 49, 48, 48, ());
+$elementalist: ('elementalist', 147, 98, 48, 48, ());
+$engineer: ('engineer', 0, 147, 48, 48, ());
+$fireband: ('fireband', 49, 147, 48, 48, ());
+$guardian: ('guardian', 98, 147, 48, 48, ());
+$herald: ('herald', 147, 147, 48, 48, ());
+$holosmith: ('holosmith', 196, 0, 48, 48, ());
+$human: ('human', 196, 49, 48, 48, ());
+$huntsman: ('huntsman', 196, 98, 48, 48, ());
+$jeweler: ('jeweler', 196, 147, 48, 48, ());
+$leatherworker: ('leatherworker', 0, 0, 48, 48, ());
+$mesmer: ('mesmer', 49, 196, 48, 48, ());
+$mirage: ('mirage', 98, 196, 48, 48, ());
+$necromancer: ('necromancer', 147, 196, 48, 48, ());
+$norn: ('norn', 196, 196, 48, 48, ());
+$ranger: ('ranger', 245, 0, 48, 48, ());
+$reaper: ('reaper', 245, 49, 48, 48, ());
+$renegade: ('renegade', 245, 98, 48, 48, ());
+$revenant: ('revenant', 245, 147, 48, 48, ());
+$scourge: ('scourge', 245, 196, 48, 48, ());
+$scrapper: ('scrapper', 0, 245, 48, 48, ());
+$scribe: ('scribe', 49, 245, 48, 48, ());
+$soulbeast: ('soulbeast', 98, 245, 48, 48, ());
+$spellbreaker: ('spellbreaker', 147, 245, 48, 48, ());
+$sylvari: ('sylvari', 196, 245, 48, 48, ());
+$tailor: ('tailor', 245, 245, 48, 48, ());
+$tempest: ('tempest', 294, 0, 48, 48, ());
+$thief: ('thief', 294, 49, 48, 48, ());
+$warrior: ('warrior', 294, 98, 48, 48, ());
+$weaponsmith: ('weaponsmith', 294, 147, 48, 48, ());
+$weaver: ('weaver', 294, 196, 48, 48, ());
+
+$characters-sprites: ($armorsmith, $artificer, $asura, $berserker, $charr, $chef, $chronomancer, $daredevil, $deadeye, $dragonhunter, $druid, $elementalist, $engineer, $fireband, $guardian, $herald, $holosmith, $human, $huntsman, $jeweler, $leatherworker, $mesmer, $mirage, $necromancer, $norn, $ranger, $reaper, $renegade, $revenant, $scourge, $scrapper, $scribe, $soulbeast, $spellbreaker, $sylvari, $tailor, $tempest, $thief, $warrior, $weaponsmith, $weaver, );
+
+@each $sprite in $characters-sprites {
+	$sprite-name: nth($sprite, 1);
+	$sprite-x: nth($sprite, 2);
+	$sprite-y: nth($sprite, 3);
+	$sprite-width: nth($sprite, 4);
+	$sprite-height: nth($sprite, 5);
+
+	@if length($sprite) > 5 {
+		$aliases: nth($sprite, 6);
+		$aliases: append($aliases, $sprite-name);
+		$selector: ();
+
+		@each $item in $aliases {
+			$selector: append($selector, unquote('.#{$gw2-css-prefix}-#{$item}'), 'comma');
+		}
+
+		#{$selector} {
+			@extend %gw2-characters;
+			@include gw2-iconify($sprite-x, $sprite-y, $sprite-width, $sprite-height, $gw2-characters-file-width, $gw2-characters-file-height);
+		}
+	} @else {
+		.#{$gw2-css-prefix}-#{$sprite-name} {
+			@extend %gw2-characters;
+			@include gw2-iconify($sprite-x, $sprite-y, $sprite-width, $sprite-height, $gw2-characters-file-width, $gw2-characters-file-height);
+		}
+	}
+}
+
+
