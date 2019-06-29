@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\glfw-3.3\examples\sharing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\glfw-3.3\deps\glad_gl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\glfw-3.3\deps\glad\gl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\glfw-3.3\examples\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\glfw-3.3\examples\glfw.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{F9D6E233-5ECC-30BA-A1FC-AC1F3A8D1585}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D6E8B010-22EE-3FF9-BC57-D527BA2BC2B5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\glfw-3.3\build\CMakeFiles\96844bbaad497b99ebc920074d10e15d\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{2719EA74-74B8-38AA-B36D-AB79B7613881}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
