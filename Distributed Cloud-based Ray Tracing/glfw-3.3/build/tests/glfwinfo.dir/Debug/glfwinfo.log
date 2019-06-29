@@ -1,0 +1,8 @@
+﻿  Building Custom Rule D:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/tests/CMakeLists.txt
+  glfwinfo.c
+  getopt.c
+  glad_gl.c
+  glad_vulkan.c
+  Generating Code...
+     Creating library D:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/build/tests/Debug/glfwinfo.lib and object D:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/build/tests/Debug/glfwinfo.exp
+  glfwinfo.vcxproj -> D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\glfw-3.3\build\tests\Debug\glfwinfo.exe

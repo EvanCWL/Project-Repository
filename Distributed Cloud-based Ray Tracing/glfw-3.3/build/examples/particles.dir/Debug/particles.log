@@ -1,0 +1,8 @@
+﻿  Building Custom Rule D:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/examples/CMakeLists.txt
+  particles.c
+  tinycthread.c
+  getopt.c
+  glad_gl.c
+  Generating Code...
+     Creating library D:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/build/examples/Debug/particles.lib and object D:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/build/examples/Debug/particles.exp
+  particles.vcxproj -> D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\glfw-3.3\build\examples\Debug\particles.exe

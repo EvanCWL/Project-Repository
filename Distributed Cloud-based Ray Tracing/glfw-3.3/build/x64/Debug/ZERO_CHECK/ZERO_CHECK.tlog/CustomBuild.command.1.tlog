@@ -1,0 +1,10 @@
+^D:\GITHUB REPOSITORIES\PROJECT-REPOSITORY\DISTRIBUTED CLOUD-BASED RAY TRACING\GLFW-3.3\BUILD\CMAKEFILES\96844BBAAD497B99EBC920074D10E15D\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3" "-BD:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/build/GLFW.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

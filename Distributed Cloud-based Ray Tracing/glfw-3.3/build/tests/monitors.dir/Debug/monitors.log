@@ -1,0 +1,7 @@
+﻿  Building Custom Rule D:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/tests/CMakeLists.txt
+  monitors.c
+  getopt.c
+  glad_gl.c
+  Generating Code...
+     Creating library D:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/build/tests/Debug/monitors.lib and object D:/Github Repositories/Project-Repository/Distributed Cloud-based Ray Tracing/glfw-3.3/build/tests/Debug/monitors.exp
+  monitors.vcxproj -> D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\glfw-3.3\build\tests\Debug\monitors.exe
