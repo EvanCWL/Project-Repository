@@ -1,5 +1,0 @@
-﻿  Source.cpp
-     Creating library D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\OpenGL project\Project1\x64\Debug\Project1.lib and object D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\OpenGL project\Project1\x64\Debug\Project1.exp
-Source.obj : error LNK2019: unresolved external symbol gladLoadGLLoader referenced in function main
-Source.obj : error LNK2001: unresolved external symbol glad_glViewport
-D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\OpenGL project\Project1\x64\Debug\Project1.exe : fatal error LNK1120: 2 unresolved externals
