@@ -1,3 +1,0 @@
-﻿  Source.cpp
-D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\OpenGL project\Project2\Project2\Source.cpp(11,17): warning C4305:  'initializing': truncation from 'double' to 'float'
-  Project2.vcxproj -> D:\Github Repositories\Project-Repository\Distributed Cloud-based Ray Tracing\OpenGL project\Project2\Debug\Project2.exe
