@@ -12,7 +12,7 @@ vec3 color(const ray& r) {
 }
 
 int main() {
-	ofstream img("Picture.ppm");
+	ofstream img("second.ppm");
 	int nx = 200;
 	int ny = 100;
 	img << "P3\n" << nx << " " << ny << "\n255\n";
