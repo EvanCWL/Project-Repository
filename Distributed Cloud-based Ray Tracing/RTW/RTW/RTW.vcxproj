@@ -19,12 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="referenceMain.cpp" />
     <ClCompile Include="referenceVec3.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ray.h" />
     <ClInclude Include="vec3.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
