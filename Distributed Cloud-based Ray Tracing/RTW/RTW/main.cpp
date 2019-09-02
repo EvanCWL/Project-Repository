@@ -1,5 +1,5 @@
-#include <fstream>
 #include "ray.h"
+#include <fstream>
 using namespace std;
 
 bool hit_sphere(const vec3& center, float radius, const ray& r) {
@@ -7,9 +7,9 @@ bool hit_sphere(const vec3& center, float radius, const ray& r) {
 	float a = dot(r.direction(), r.direction());
 	float b = 2.0 * dot(oc, r.direction());
 	float c = dot(oc, oc) - radius * radius;
-	float discriminant = b * b - 4 * a*c;
+	float discriminant = (b * b - 4 * a*c);
 	if (discriminant < 0) {
-		return 0;
+		return -1.0;
 	}
 	else {
 		return (-b - sqrt(discriminant)) / (2.0*a);
@@ -35,7 +35,7 @@ int main() {
 	vec3 horizontal(4.0, 0.0, 0.0);
 	vec3 vertical(0.0, 2.0, 0.0);
 	vec3 origin(0.0, 0.0, 0.0);
-	for (int j = ny-1; j >= 0; j--) {
+	for (int j = ny; j >= 0; j--) {
 		for (int i = 0; i < nx; i++) {
 			float u = float(i) / float(nx);
 			float v = float(j) / float(ny);
