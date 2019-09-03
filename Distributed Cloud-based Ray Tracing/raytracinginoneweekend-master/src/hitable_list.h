@@ -11,7 +11,7 @@
 
 #ifndef HITABLELISTH
 #define HITABLELISTH
-
+#include <random>
 #include "hitable.h"
 
 class hitable_list: public hitable  {

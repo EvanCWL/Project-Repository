@@ -11,7 +11,6 @@
 
 #ifndef HITABLEH
 #define HITABLEH 
-
 #include "ray.h"
 
 class material;

@@ -1,6 +1,6 @@
 #include <math.h>
 #include <stdlib.h>
-#include <iostream>
+
 class vec3
 {
 public:

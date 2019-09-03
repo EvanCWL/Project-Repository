@@ -15,7 +15,7 @@
 #include "float.h"
 #include "camera.h"
 #include "material.h"
-
+#include <random>
 
 vec3 color(const ray& r, hitable *world, int depth) {
     hit_record rec;
