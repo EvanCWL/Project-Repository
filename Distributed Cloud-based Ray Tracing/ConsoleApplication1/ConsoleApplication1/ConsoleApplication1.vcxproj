@@ -24,12 +24,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
-    <ClInclude Include="material.h" />
-    <ClInclude Include="vec3.h" />
-    <ClInclude Include="sphere.h" />
-    <ClInclude Include="ray.h" />
-    <ClInclude Include="hitable_list.h" />
     <ClInclude Include="hitable.h" />
+    <ClInclude Include="hitable_list.h" />
+    <ClInclude Include="material.h" />
+    <ClInclude Include="ray.h" />
+    <ClInclude Include="sphere.h" />
+    <ClInclude Include="vec3.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
