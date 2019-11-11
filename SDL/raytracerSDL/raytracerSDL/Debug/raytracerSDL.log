@@ -1,0 +1,18 @@
+﻿  main.cpp
+D:\Chua's File\Project-Repository\raytracerSDL\raytracerSDL\raytracer.h(30,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\raytracerSDL\raytracerSDL\raytracer.h(30,16): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+D:\Chua's File\Project-Repository\raytracerSDL\raytracerSDL\main.cpp(193,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+main.obj : error LNK2019: unresolved external symbol _SDL_GetError referenced in function "struct SDL_Surface * __cdecl InitializeSDL(int,int,bool)" (?InitializeSDL@@YAPAUSDL_Surface@@HH_N@Z)
+main.obj : error LNK2019: unresolved external symbol _SDL_RWFromFile referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _SDL_GetKeyState referenced in function "void __cdecl update(void)" (?update@@YAXXZ)
+main.obj : error LNK2019: unresolved external symbol _SDL_SetVideoMode referenced in function "struct SDL_Surface * __cdecl InitializeSDL(int,int,bool)" (?InitializeSDL@@YAPAUSDL_Surface@@HH_N@Z)
+main.obj : error LNK2019: unresolved external symbol _SDL_UpdateRect referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _SDL_MapRGB referenced in function "void __cdecl PutPixelSDL(struct SDL_Surface *,int,int,struct glm::vec<3,float,0>)" (?PutPixelSDL@@YAXPAUSDL_Surface@@HHU?$vec@$02M$0A@@glm@@@Z)
+main.obj : error LNK2019: unresolved external symbol _SDL_UnlockSurface referenced in function "void __cdecl draw(void)" (?draw@@YAXXZ)
+main.obj : error LNK2019: unresolved external symbol _SDL_SaveBMP_RW referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _SDL_FillRect referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _SDL_PollEvent referenced in function "bool __cdecl NoQuitMessageSDL(void)" (?NoQuitMessageSDL@@YA_NXZ)
+main.obj : error LNK2019: unresolved external symbol _SDL_GetTicks referenced in function "void __cdecl update(void)" (?update@@YAXXZ)
+main.obj : error LNK2019: unresolved external symbol _SDL_Init referenced in function "struct SDL_Surface * __cdecl InitializeSDL(int,int,bool)" (?InitializeSDL@@YAPAUSDL_Surface@@HH_N@Z)
+main.obj : error LNK2019: unresolved external symbol _SDL_Quit referenced in function "struct SDL_Surface * __cdecl InitializeSDL(int,int,bool)" (?InitializeSDL@@YAPAUSDL_Surface@@HH_N@Z)
+D:\Chua's File\Project-Repository\raytracerSDL\Debug\raytracerSDL.exe : fatal error LNK1120: 13 unresolved externals
