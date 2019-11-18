@@ -11,16 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <CudaCompile Include="..\..\..\..\..\Chua%27s File\Project-Repository\CUDA\raytracinginoneweekend\raytracinginoneweekend\main.cu" />
+    <CudaCompile Include="..\..\..\..\..\..\Chua%27s File\Project-Repository\Distributed Cloud-based Ray Tracing\CUDA\raytracinginoneweekend\raytracinginoneweekend\main.cu" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="hitable.h" />
-    <ClInclude Include="hitable_list.h" />
-    <ClInclude Include="material.h" />
-    <ClInclude Include="ray.h" />
-    <ClInclude Include="sphere.h" />
-    <ClInclude Include="vec3.h" />
+    <ClInclude Include="..\..\..\..\..\..\Chua%27s File\Project-Repository\Distributed Cloud-based Ray Tracing\CUDA\raytracinginoneweekend\raytracinginoneweekend\camera.cuh" />
+    <ClInclude Include="..\..\..\..\..\..\Chua%27s File\Project-Repository\Distributed Cloud-based Ray Tracing\CUDA\raytracinginoneweekend\raytracinginoneweekend\hitable.cuh" />
+    <ClInclude Include="..\..\..\..\..\..\Chua%27s File\Project-Repository\Distributed Cloud-based Ray Tracing\CUDA\raytracinginoneweekend\raytracinginoneweekend\hitable_list.cuh" />
+    <ClInclude Include="..\..\..\..\..\..\Chua%27s File\Project-Repository\Distributed Cloud-based Ray Tracing\CUDA\raytracinginoneweekend\raytracinginoneweekend\material.cuh" />
+    <ClInclude Include="..\..\..\..\..\..\Chua%27s File\Project-Repository\Distributed Cloud-based Ray Tracing\CUDA\raytracinginoneweekend\raytracinginoneweekend\ray.cuh" />
+    <ClInclude Include="..\..\..\..\..\..\Chua%27s File\Project-Repository\Distributed Cloud-based Ray Tracing\CUDA\raytracinginoneweekend\raytracinginoneweekend\sphere.cuh" />
+    <ClInclude Include="..\..\..\..\..\..\Chua%27s File\Project-Repository\Distributed Cloud-based Ray Tracing\CUDA\raytracinginoneweekend\raytracinginoneweekend\vec3.cuh" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{737A32EA-1429-464F-89F2-3BA35837E08E}</ProjectGuid>
