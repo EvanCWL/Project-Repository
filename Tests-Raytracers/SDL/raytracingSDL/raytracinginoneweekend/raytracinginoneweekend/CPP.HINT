@@ -1,0 +1,1 @@
+#define __device__ __location__(device)

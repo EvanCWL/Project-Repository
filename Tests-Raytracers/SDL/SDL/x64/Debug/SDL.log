@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (SDL (2).vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Main.cpp
+D:\Chua's File\Project-Repository\Tests-Raytracers\SDL\SDL\Main.cpp(16,101): error C2556: 'void WinMain(HINSTANCE,HINSTANCE,LPSTR,int)': overloaded function differs only by return type from 'int WinMain(HINSTANCE,HINSTANCE,LPSTR,int)'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\winbase.h(933): message : see declaration of 'WinMain'
+D:\Chua's File\Project-Repository\Tests-Raytracers\SDL\SDL\Main.cpp(16,16): error C2371: 'WinMain': redefinition; different basic types
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\winbase.h(933): message : see declaration of 'WinMain'
