@@ -1,118 +1,86 @@
-//Using SDL and standard IO
+
+#include <Windows.h>
+#include <stdint.h>
+#include <gl/GL.h>
+#include <gl/GLU.h>
 #include <SDL.h>
-#include <stdio.h>
+#include <SDL_image.h>
 
-//Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+// SDL2 state
+static SDL_Window *global_window;
+static SDL_GLContext global_gl_context;
+static bool global_running;
 
-//Starts up SDL and creates window
-bool init();
+// Window size
+static uint32_t global_window_width;
+static uint32_t global_window_height;
 
-//Loads media
-bool loadMedia();
-
-//Frees media and shuts down SDL
-void close();
-
-//The window we'll be rendering to
-SDL_Window* gWindow = NULL;
-
-//The surface contained by the window
-SDL_Surface* gScreenSurface = NULL;
-
-//The image we will load and show on the screen
-SDL_Surface* gHelloWorld = NULL;
-
-bool init()
-{
-	//Initialization flag
-	bool success = true;
-
-	//Initialize SDL
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-	{
-		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
-		success = false;
+int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+	// Initialise SDL2
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+		OutputDebugString("[Error] Failed to initialise SDL2");
+		return 1;
 	}
-	else
-	{
-		//Create window
-		gWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-		if (gWindow == NULL)
-		{
-			printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
-			success = false;
+
+	// Create the SDL2 window
+	global_window = SDL_CreateWindow("SDL2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_OPENGL);
+	if (!global_window) {
+		OutputDebugString("[Error] Failed to create SDL2 window");
+		return 1;
+	}
+	
+	// Select the version of OpenGL you want to use.. This just uses 3.3
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+	//SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+
+	// Choose the profile version you want.. This just selects the core profile
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+
+	// Create the OpenGL context
+	global_gl_context = SDL_GL_CreateContext(global_window);
+	if (!global_gl_context) {
+		OutputDebugString("[Error] Failed to create OpenGL context");
+		return 1;
+	}
+
+	global_running = true;
+	while (global_running) {
+		// Poll for user input events
+		SDL_Event event;
+		while (SDL_PollEvent(&event)) {
+			switch (event.type) {
+				case SDL_QUIT: { global_running = false; } break;
+				case SDL_WINDOWEVENT: {
+					if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
+						global_window_width  = (uint32_t) event.window.data1;
+						global_window_height = (uint32_t) event.window.data2;
+					}
+				}
+				break;
+				// ... Handle other events here.
+			}
 		}
-		else
-		{
-			//Get window surface
-			gScreenSurface = SDL_GetWindowSurface(gWindow);
-		}
+
+		// Set viewport to draw to entire window
+		glViewport(0, 0, global_window_width, global_window_height);
+
+		// Clear the screen to red
+		glClearColor(1, 0, 0, 1);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		SDL_Renderer* window_renderer = SDL_CreateRenderer(global_window, -1, SDL_RENDERER_ACCELERATED);
+		SDL_RenderPresent(window_renderer);
+
+		// Swap the window buffers to display screen contents
+		SDL_GL_SwapWindow(global_window);
 	}
+	
+	// Delete OpenGL context and destroy the window
+	SDL_GL_DeleteContext(global_gl_context);
+	SDL_DestroyWindow(global_window);
 
-	return success;
-}
-
-bool loadMedia()
-{
-	//Loading success flag
-	bool success = true;
-
-	//Load splash image
-	gHelloWorld = SDL_LoadBMP("../Raytracer/output.ppm");
-	if (gHelloWorld == NULL)
-	{
-		printf("Unable to load image %s! SDL Error: %s\n", "02_getting_an_image_on_the_screen/hello_world.bmp", SDL_GetError());
-		success = false;
-	}
-
-	return success;
-}
-
-void close()
-{
-	//Deallocate surface
-	SDL_FreeSurface(gHelloWorld);
-	gHelloWorld = NULL;
-
-	//Destroy window
-	SDL_DestroyWindow(gWindow);
-	gWindow = NULL;
-
-	//Quit SDL subsystems
+	// Quit SDL
 	SDL_Quit();
-}
-
-int main(int argc, char* args[])
-{
-	//Start up SDL and create window
-	if (!init())
-	{
-		printf("Failed to initialize!\n");
-	}
-	else
-	{
-		//Load media
-		if (!loadMedia())
-		{
-			printf("Failed to load media!\n");
-		}
-		else
-		{
-			//Apply the image
-			SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
-
-			//Update the surface
-			SDL_UpdateWindowSurface(gWindow);
-
-			//Wait two seconds
-			SDL_Delay(2000);
-		}
-	}
-
-	//Free resources and close SDL
-	close();
 
 	return 0;
 }

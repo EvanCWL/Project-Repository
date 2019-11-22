@@ -11,6 +11,7 @@
 #include "material.h"
 #include "device_launch_parameters.h"
 #include <texture_fetch_functions.h>
+#include <SDL.h>
 
 using namespace std;
 
@@ -147,16 +148,19 @@ __global__ void free_world(hitable **d_list, hitable **d_world, camera **d_camer
     delete *d_camera;
 }
 
-int main() {
-    const int nx = 1920;
-    const int ny = 1080;
+int main(int argc, char* argv[]) {
+    const int nx = 1280;
+    const int ny = 720;
     int ns = 10;
-    int tx = 32;
-    int ty = 32;
+    int tx = 22;
+    int ty = 22;
+	//bool running = true;
+
 	ofstream img("output.ppm");
     std::cerr << "Rendering a " << nx << "x" << ny << " image with " << ns << " samples per pixel ";
     std::cerr << "in " << tx << "x" << ty << " blocks.\n";
 
+	
     int num_pixels = nx*ny;
     size_t fb_size = num_pixels*sizeof(vec3);
 
@@ -203,15 +207,35 @@ int main() {
     std::cerr << "took " << timer_seconds << " seconds.\n";
 
     // Output FB as Image
-	int rgb[nx][ny][3];
-    img << "P3\n" << nx << " " << ny << "\n255\n";
+	SDL_Window* window = SDL_CreateWindow("test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, nx, ny, SDL_WINDOW_OPENGL);
+	if (window == NULL) {
+		std::cout << SDL_GetError();
+		return 1;
+	}
+	SDL_Renderer* renderer = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED);
+	//SDL_Texture* texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_TARGET, nx, ny);
+	//SDL_SetRenderTarget(renderer, texture);
+
+	std::cout << "P3\n" << nx << " " << ny << "\n255\n";
     for (int j = ny-1; j >= 0; j--) {
         for (int i = 0; i < nx; i++) {
             size_t pixel_index = j*nx + i;
-			rgb[nx][ny][0] = int(255.99*fb[pixel_index].r());
-			rgb[nx][ny][1] = int(255.99*fb[pixel_index].g());
-			rgb[nx][ny][2] = int(255.99*fb[pixel_index].b());
-			img << rgb[nx][ny][0] << " " << rgb[nx][ny][1] << " " << rgb[nx][ny][2] << "\n";
+			int ir = int(255.99*fb[pixel_index].r());
+			int ig = int(255.99*fb[pixel_index].g());
+			int ib = int(255.99*fb[pixel_index].b());
+			SDL_SetRenderDrawColor(renderer, ir, ig, ib, 255);
+			SDL_Rect rectangle;
+			rectangle.x = i;
+			rectangle.y = j;
+			rectangle.w = 50;
+			rectangle.h = 50;
+			//SDL_RenderDrawPoint(renderer, i, j);
+			//SDL_RenderClear(renderer);
+			SDL_RenderFillRect(renderer, &rectangle);
+			
+			//SDL_RenderCopy(renderer, texture, NULL, NULL);
+			SDL_RenderPresent(renderer);
+			std::cout << ir << " " << ig << " " << ib << "\n";
         }
     }
 	
@@ -224,6 +248,13 @@ int main() {
     checkCudaErrors(cudaFree(d_list));
     checkCudaErrors(cudaFree(d_rand_state));
     checkCudaErrors(cudaFree(fb));
+	
+	//SDL_DestroyTexture(texture);
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
+	SDL_Quit();
 
     cudaDeviceReset();
+
+	return 0;
 }
