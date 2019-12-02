@@ -1,8 +1,12 @@
 ﻿  Compiling CUDA source file ..\..\..\..\..\Chua's File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\Raytracer\main.cu...
   
   D:\Chua's File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\Raytracer>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin\nvcc.exe" -gencode=arch=compute_35,code=\"sm_35,compute_35\" --use-local-env -ccbin "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\bin\HostX86\x64" -x cu  -I"D:\Chua's File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\/lib/SDL2/include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include"  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc142.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\main.cu.obj "D:\Chua's File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\Raytracer\main.cu" 
+D:/Chua's File/Project-Repository/Current/Distributed Cloud-based Ray Tracing/Raytracer/main.cu(173): warning : variable "updateDisplay" was declared but never referenced
+  
 CUDACOMPILE : ptxas warning : Stack size for entry function '_Z6renderP4vec3iiiPP6cameraPP7hitableP17curandStateXORWOW' cannot be statically determined
   main.cu
 D:\Chua's File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\Raytracer\vec3.h(54): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 D:\Chua's File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\Raytracer\vec3.h(133): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  LINK : D:\Chua's File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\x64\Debug\Raytracer.exe not found or not built by the last incremental link; performing full link
+     Creating library D:\Chua's File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\x64\Debug\Raytracer.lib and object D:\Chua's File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\x64\Debug\Raytracer.exp
   Raytracer.vcxproj -> D:\Chua's File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\x64\Debug\Raytracer.exe
