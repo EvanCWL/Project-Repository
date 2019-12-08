@@ -339,3 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 Current/Distributed Cloud-based Ray Tracing/.vs/Distributed Cloud-based Ray Tracing/v16/ipch/AutoPCH/bf457d38fb40810c/MAIN.ipch
+*.ipch
