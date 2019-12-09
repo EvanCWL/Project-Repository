@@ -3,18 +3,18 @@
 #include "ray.h"
 #include "hitable.h"
 
-inline float ffmin(float a, float b) { return a < b ? a : b; }
-inline float ffmax(float a, float b) { return a > b ? a : b; }
+__device__ inline float ffmin(float a, float b) { return a < b ? a : b; }
+__device__ inline float ffmax(float a, float b) { return a > b ? a : b; }
 
 class aabb {
 public:
-    aabb() {}
-    aabb(const vec3& a, const vec3& b) { _min = a; _max = b; }
+    __device__ aabb() {}
+    __device__ aabb(const vec3& a, const vec3& b) { _min = a; _max = b; }
 
-    vec3 min() const { return _min; }
-    vec3 max() const { return _max; }
+    __device__ vec3 min() const { return _min; }
+    __device__ vec3 max() const { return _max; }
 
-    bool hit(const ray& r, float tmin, float tmax) const {
+    __device__ bool hit(const ray& r, float tmin, float tmax) const {
         for (int a = 0; a < 3; a++) {
             float t0 = ffmin((_min[a] - r.origin()[a]) / r.direction()[a],
                 (_max[a] - r.origin()[a]) / r.direction()[a]);
@@ -32,7 +32,7 @@ public:
     vec3 _max;
 };
 
-aabb surrounding_box(aabb box0, aabb box1) {
+__device__ aabb surrounding_box(aabb box0, aabb box1) {
     vec3 small(ffmin(box0.min().x(), box1.min().x()),
         ffmin(box0.min().y(), box1.min().y()),
         ffmin(box0.min().z(), box1.min().z()));

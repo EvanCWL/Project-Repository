@@ -5,22 +5,22 @@
 
 class bvh_node : public hitable {
 public:
-    bvh_node() {}
-    bvh_node(hitable** l, int n, float time0, float time1);
-    virtual bool hit(const ray& r, float tmin, float tmax, hit_record& rec) const;
-    virtual bool bounding_box(float t0, float t1, aabb& box) const;
+    __device__ bvh_node() {}
+    __device__ bvh_node(hitable** l, int n, float time0, float time1);
+    __device__ virtual bool hit(const ray& r, float tmin, float tmax, hit_record& rec) const;
+    __device__ virtual bool bounding_box(float t0, float t1, aabb& box) const;
     hitable* left;
     hitable* right;
     aabb box;
 };
 
 
-bool bvh_node::bounding_box(float t0, float t1, aabb& b) const {
+__device__ bool bvh_node::bounding_box(float t0, float t1, aabb& b) const {
     b = box;
     return true;
 }
 
-bool bvh_node::hit(const ray& r, float t_min, float t_max, hit_record& rec) const {
+__device__ bool bvh_node::hit(const ray& r, float t_min, float t_max, hit_record& rec) const {
     if (box.hit(r, t_min, t_max)) {
         hit_record left_rec, right_rec;
         bool hit_left = left->hit(r, t_min, t_max, left_rec);
@@ -47,7 +47,7 @@ bool bvh_node::hit(const ray& r, float t_min, float t_max, hit_record& rec) cons
 }
 
 
-int box_x_compare(const void* a, const void* b) {
+__device__ int box_x_compare(const void* a, const void* b) {
     aabb box_left, box_right;
     hitable* ah = *(hitable**)a;
     hitable* bh = *(hitable**)b;
@@ -59,7 +59,7 @@ int box_x_compare(const void* a, const void* b) {
         return 1;
 }
 
-int box_y_compare(const void* a, const void* b)
+__device__ int box_y_compare(const void* a, const void* b)
 {
     aabb box_left, box_right;
     hitable* ah = *(hitable**)a;
@@ -71,7 +71,7 @@ int box_y_compare(const void* a, const void* b)
     else
         return 1;
 }
-int box_z_compare(const void* a, const void* b)
+__device__ int box_z_compare(const void* a, const void* b)
 {
     aabb box_left, box_right;
     hitable* ah = *(hitable**)a;
@@ -85,7 +85,7 @@ int box_z_compare(const void* a, const void* b)
 }
 
 
-bvh_node::bvh_node(hitable** l, int n, float time0, float time1) {
+__device__ bvh_node::bvh_node(hitable** l, int n, float time0, float time1) {
     int axis = int(3 * drand48());
     if (axis == 0)
         qsort(l, n, sizeof(hitable*), box_x_compare);
