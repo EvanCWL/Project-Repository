@@ -221,7 +221,15 @@ int main(int argc, char* argv[]) {
 	int xc = 13;
 	dim3 blocks(width / tx + 1, height / ty + 1);
 	dim3 threads(tx, ty);
-
+	create_world << <1, 1 >> > (d_list, d_world, d_camera, width, height, d_rand_state2, 13);
+	checkCudaErrors(cudaGetLastError());
+	checkCudaErrors(cudaDeviceSynchronize());
+	render_init << <blocks, threads >> > (width, height, d_rand_state);
+	checkCudaErrors(cudaGetLastError());
+	checkCudaErrors(cudaDeviceSynchronize());
+	render << <blocks, threads >> > (fb, width, height, ns, d_camera, d_world, d_rand_state);
+	checkCudaErrors(cudaGetLastError());
+	checkCudaErrors(cudaDeviceSynchronize());
 	int j = 0;
 	int i = 0;
 	while (running) {

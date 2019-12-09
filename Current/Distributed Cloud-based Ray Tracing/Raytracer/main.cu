@@ -129,12 +129,12 @@ __global__ void create_world(hitable** d_list, hitable** d_world, camera** d_cam
 
 		vec3 lookfrom(13, 2, 3);
 		vec3 lookat(0, 0, 0);
-		float dist_to_focus = 10.0; (lookfrom - lookat).length();
-		float aperture = 0.1;
+		float dist_to_focus = 10.0; //(lookfrom - lookat).length();
+		float aperture = 0.01;
 		*d_camera = new camera(lookfrom,
 			lookat,
 			vec3(0, 1, 0),
-			30.0,
+			20.0,
 			float(width) / float(height),
 			aperture,
 			dist_to_focus);
@@ -165,11 +165,11 @@ void saveImage(int width, int height, vec3* fb, string output) {
 }
 
 int main(int argc, char* argv[]) {
-	int width = 1920;
-	int height = 1080;
-	int ns = 10;
-	int tx = 22;
-	int ty = 22;
+	int width = 1280;
+	int height = 720;
+	int ns = 100;
+	int tx = 8;
+	int ty = 8;
 	bool running = true, updateDisplay = true;
 	SDL_Window* window;
 	SDL_Renderer* renderer;
@@ -240,32 +240,6 @@ int main(int argc, char* argv[]) {
 		std::cout << SDL_GetError();
 		return 1;
 	}
-
-	/*
-	SDL_GLContext context = SDL_GL_CreateContext(window);
-	if (context == NULL) {
-		std::cout << SDL_GetError();
-		return 1;
-	}
-
-
-	for (int j = height - 1; j >= 0; j--) {
-		for (int i = 0; i < width; i++) {
-			size_t pixel_index = j * width + i;
-			int ir = int(255.99 * fb[pixel_index].r());
-			int ig = int(255.99 * fb[pixel_index].g());
-			int ib = int(255.99 * fb[pixel_index].b());
-			SDL_SetRenderDrawColor(renderer, ir, ig, ib, 255);
-			SDL_Rect rectangle;
-			rectangle.x = i;
-			rectangle.y = j;
-			rectangle.w = 50;
-			rectangle.h = 50;
-			SDL_RenderFillRect(renderer, &rectangle);
-			SDL_RenderPresent(renderer);
-		}
-	}
-	*/
 
 	//Render Scene
 	clock_t start, stop;
