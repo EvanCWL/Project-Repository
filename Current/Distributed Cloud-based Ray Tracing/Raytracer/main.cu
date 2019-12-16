@@ -165,9 +165,9 @@ void saveImage(int width, int height, vec3* fb, string output) {
 }
 
 int main(int argc, char* argv[]) {
-	int width = 200;
-	int height = 100;
-	int ns = 10;
+	int width = 1280;
+	int height = 720;
+	int ns = 100;
 	int tx = 16;
 	int ty = 16;
 	bool running = true, updateDisplay = true;

@@ -4,7 +4,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <iostream>
-
+#include "device_launch_parameters.h"
 class vec3 {
 
 

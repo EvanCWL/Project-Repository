@@ -2,6 +2,7 @@
 #define HITABLEH
 
 #include "ray.h"
+#include "device_launch_parameters.h"
 #include "aabb.h"
 
 class material;

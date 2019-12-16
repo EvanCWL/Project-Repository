@@ -1,6 +1,7 @@
 #ifndef RAYH
 #define RAYH
 #include "vec3.h"
+#include "device_launch_parameters.h"
 
 class ray
 {
