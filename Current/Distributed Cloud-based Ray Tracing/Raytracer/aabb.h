@@ -1,7 +1,7 @@
 #ifndef AABBH
 #define AABBH
+
 #include "ray.h"
-#include "hitable.h"
 
 __device__ inline float ffmin(float a, float b) { return a < b ? a : b; }
 __device__ inline float ffmax(float a, float b) { return a > b ? a : b; }
