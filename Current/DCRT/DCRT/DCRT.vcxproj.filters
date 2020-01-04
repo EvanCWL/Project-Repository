@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="main.cu" />
+    <CudaCompile Include="texturegpu.cu">
+      <Filter>frontend</Filter>
+    </CudaCompile>
+    <CudaCompile Include="hitable_list.cu">
+      <Filter>hitable</Filter>
+    </CudaCompile>
+    <CudaCompile Include="sphere.cu">
+      <Filter>hitable</Filter>
+    </CudaCompile>
+    <CudaCompile Include="chaper_11_kernel.cu">
+      <Filter>kernels</Filter>
+    </CudaCompile>
+    <CudaCompile Include="lambertian.cuh">
+      <Filter>material</Filter>
+    </CudaCompile>
+    <CudaCompile Include="math.cu">
+      <Filter>math</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda_utils.cuh">
+      <Filter>utils</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="texturegpu.cuh">
+      <Filter>frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="window.hpp">
+      <Filter>frontend</Filter>
+    </ClInclude>
+    <ClInclude Include="hitable.cuh">
+      <Filter>hitable</Filter>
+    </ClInclude>
+    <ClInclude Include="hitable_list.cuh">
+      <Filter>hitable</Filter>
+    </ClInclude>
+    <ClInclude Include="sphere.cuh">
+      <Filter>hitable</Filter>
+    </ClInclude>
+    <ClInclude Include="kernels.cuh">
+      <Filter>kernels</Filter>
+    </ClInclude>
+    <ClInclude Include="dielectric.cuh">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="material.cuh">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="metal.cuh">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.cuh">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="math.cuh">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="ray.cuh">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3.cuh">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="config.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda_vector.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="managed_ptr.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="world.cuh">
+      <Filter>utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="frontend">
+      <UniqueIdentifier>{2b8fd7af-c554-4ba9-a052-2422c59836a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hitable">
+      <UniqueIdentifier>{2166340e-ccd1-4d83-a5bb-17c7aab1e9eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kernels">
+      <UniqueIdentifier>{a298b4e6-e8de-4a32-bb91-9068ea76c393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="material">
+      <UniqueIdentifier>{ac8f6bf4-f49e-4c45-99af-55c55556f924}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{883f7e09-f08e-4fa4-9ea7-baa845b49657}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{33013a69-6c4f-426a-b433-0c4f7d33b815}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="window.cpp">
+      <Filter>frontend</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
