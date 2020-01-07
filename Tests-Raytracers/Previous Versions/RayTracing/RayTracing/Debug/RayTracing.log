@@ -1,198 +1,31 @@
-﻿  vec3.cpp
-  main.cpp
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(33,14): warning C4244:  'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(11,10): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(75,10): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\hitable_list.h(19,30): warning C4244:  'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(5,1): error C2011:  'vec3': 'class' type redefinition
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(2,60): error C2084:  function 'std::istream &operator >>(std::istream &,vec3 &)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(2): message :  see previous definition of '>>'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(3,9): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(3,19): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(3,29): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(6,66): error C2084:  function 'std::ostream &operator <<(std::ostream &,const vec3 &)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(6): message :  see previous definition of '<<'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(7,9): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(7,26): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(7,43): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(10,19): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(11,23): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(11,30): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(11,37): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(11,44): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(11,51): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(11,58): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(12,2): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(13,2): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(14,2): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(16,55): error C2084:  function 'vec3 operator +(const vec3 &,const vec3 &)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(16): message :  see previous definition of '+'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(16,55): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(17,16): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(17,26): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(17,35): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(17,45): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(17,54): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(17,64): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(17,13): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(19,55): error C2084:  function 'vec3 operator -(const vec3 &,const vec3 &)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(19): message :  see previous definition of '-'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(19,55): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(20,16): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(20,26): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(20,35): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(20,45): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(20,54): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(20,64): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(20,13): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(22,55): error C2084:  function 'vec3 operator *(const vec3 &,const vec3 &)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(22): message :  see previous definition of '*'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(22,55): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(23,16): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(23,26): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(23,35): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(23,45): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(23,54): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(23,64): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(23,13): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(25,55): error C2084:  function 'vec3 operator /(const vec3 &,const vec3 &)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(25): message :  see previous definition of '/'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(25,55): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(26,16): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(26,26): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(26,35): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(26,45): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(26,54): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(26,64): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(26,13): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(28,47): error C2084:  function 'vec3 operator *(float,const vec3 &)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(28): message :  see previous definition of '*'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(28,47): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(29,17): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(29,27): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(29,37): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(29,13): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(31,40): error C2084:  function 'vec3 operator /(vec3,float)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(31): message :  see previous definition of '/'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(31,40): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(32,15): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(32,27): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(32,39): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(32,13): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(34,47): error C2084:  function 'vec3 operator *(const vec3 &,float)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(34): message :  see previous definition of '*'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(34,47): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(35,17): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(35,27): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(35,37): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(35,13): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(37,50): error C2084:  function 'float dot(const vec3 &,const vec3 &)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(37): message :  see previous definition of 'dot'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(38,11): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(38,21): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(38,31): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(38,41): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(38,51): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(38,61): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(40,51): error C2084:  function 'vec3 cross(const vec3 &,const vec3 &)' already has a body
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(40): message :  see previous definition of 'cross'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(40,51): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,17): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,27): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,37): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,47): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,60): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,70): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,80): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,90): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,102): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,112): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,122): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,132): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(41,13): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(44,20): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(45,2): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(45,11): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(46,2): error C2065:  'e': undeclared identifier
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(46,11): error C2027:  use of undefined type 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.cpp(4): message :  see declaration of 'vec3'
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(47,2): error C2065:  'e': undeclared identifier
-  Generating Code...
-C:\Users\VanillaPC\Documents\Project-Repository\Distributed Cloud-based Ray Tracing\RayTracing\RayTracing\vec3.h(47,4): error C1003:  error count exceeds 100; stopping compilation
+﻿  main.cpp
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\vec3.h(11,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\vec3.h(75,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\hitable_list.h(19,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\camera.h(18,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\material.h(15,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\material.h(98,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(20,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(20,122): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(20,18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(21,7): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(23,312): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(26,162): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(26,109): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(26,58): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(26,232): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(26,257): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(29,62): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(35,79): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(36,73): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(42,5): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(54,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(55,15): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(55,64): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(66,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(67,77): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(68,82): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(69,72): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(71,67): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\RayTracing\main.cpp(79,22): warning C4305: 'initializing': truncation from 'double' to 'float'
+  RayTracing.vcxproj -> D:\Chua's File\Project-Repository\Tests-Raytracers\Previous Versions\RayTracing\Debug\RayTracing.exe

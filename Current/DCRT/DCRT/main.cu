@@ -152,7 +152,8 @@ int main() {
         Camera gCamera(lookfrom, lookat, Vec3(0, 1, 0), 30,
             window.get_aspect_ratio(), aperture);
 
-        managed_ptr<TextureGPU> viewport = make_managed<TextureGPU>(
+        
+        <TextureGPU> viewport = make_managed<TextureGPU>(
             window.get_renderer(), window.get_width(), window.get_height(), 0.75f);
 
         // Init curand

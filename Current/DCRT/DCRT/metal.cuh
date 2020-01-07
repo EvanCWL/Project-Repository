@@ -17,7 +17,7 @@ public:
 
     __device__ virtual bool
         scatter(const Ray& r_in, const HitRecord& rec, Vec3& attenuation,
-            Ray& scattered, curandState* local_rand_state) const override {
+            Ray& scattered, curandState* local_rand_state) const {
 
         Vec3 reflected = Math::reflect(unit_vector(r_in.direction()), rec.normal);
 

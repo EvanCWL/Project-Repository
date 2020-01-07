@@ -97,6 +97,11 @@
     <ClInclude Include="..\..\..\..\..\Chua%27s File\Project-Repository\Current\Distributed Cloud-based Ray Tracing\Raytracer\vec3.h" />
     <ClInclude Include="bvh.h" />
     <ClInclude Include="aabb.h" />
+    <ClInclude Include="cuda_utils.h" />
+    <ClInclude Include="texturegpu.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,10 +2,7 @@
 #include <fstream>
 #include <time.h>
 #include <float.h>
-#include <thread>
-
 #include <curand_kernel.h>
-
 #include "vec3.h"
 #include "ray.h"
 #include "sphere.h"
@@ -13,7 +10,7 @@
 #include "camera.h"
 #include "material.h"
 #include "device_launch_parameters.h"
-
+#include <texture_fetch_functions.h>
 #include <SDL.h>
 #include <Windows.h>
 #include <gl/GL.h>
@@ -168,18 +165,15 @@ void saveImage(int width, int height, vec3* fb, string output) {
 }
 
 int main(int argc, char* argv[]) {
-	int width = 1280;
-	int height = 720;
+	int width = 200;
+	int height = 100;
 	int ns = 10;
 	int tx = 16;
 	int ty = 16;
-	int j = 0;
-	int i = 0;
-	bool running = true; //updateDisplay = true;
+	bool running = true, updateDisplay = true;
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	SDL_Texture* texture;
-	SDL_Rect rectangle;
 
 	std::cerr << "Rendering a " << width << "x" << height << " image with " << ns << " samples per pixel ";
 	std::cerr << "in " << tx << "x" << ty << " blocks.\n";
@@ -215,7 +209,7 @@ int main(int argc, char* argv[]) {
 	checkCudaErrors(cudaGetLastError());
 	checkCudaErrors(cudaDeviceSynchronize());
 
-	// Output FB as Image
+	// Output FB to SDL
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		std::cout << "[Error] Failed to initialise SDL2";
@@ -243,7 +237,7 @@ int main(int argc, char* argv[]) {
 		std::cout << SDL_GetError();
 		return 1;
 	}
-	
+
 	//Render Scene
 	clock_t start, stop;
 	start = clock();
@@ -260,32 +254,8 @@ int main(int argc, char* argv[]) {
 	double timer_seconds = ((double)(stop - start)) / CLOCKS_PER_SEC;
 	std::cerr << "took " << timer_seconds << " seconds.\n";
 
-	//SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	//SDL_RenderClear(renderer);
-
-	/*size_t pixel_index = j * width + i;
-			int ir = int(255.99 * fb[pixel_index].r());
-			int ig = int(255.99 * fb[pixel_index].g());
-			int ib = int(255.99 * fb[pixel_index].b());
-			SDL_SetRenderDrawColor(renderer, ir, ig, ib, 255);
-			rectangle.x = i;
-			rectangle.y = height - (j + 1);
-			rectangle.w = 1;
-			rectangle.h = 1;
-			SDL_RenderFillRect(renderer, &rectangle);
-			SDL_RenderPresent(renderer);
-			if (j == height) {
-				j = 0;
-			}
-			else {
-				if (i < width) {
-					i++;
-				}
-				else {
-					i = 0;
-					j++;
-				}
-	}*/
+	int j = 0;
+	int i = 0;
 	while (running) {
 		// Poll for user input events
 		SDL_Event event;
@@ -294,65 +264,47 @@ int main(int argc, char* argv[]) {
 			case SDL_QUIT: {
 				running = false;
 			}
-			break;
+						 break;
 			case SDL_WINDOWEVENT: {
 				if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
 					width = (uint32_t)event.window.data1;
 					height = (uint32_t)event.window.data2;
 				}
 			}
-			break;
-			case SDLK_DOWN: {
-				
-			}
-			break;
-			case SDLK_UP: {
-				
-			}
-			break;
-			case SDLK_LEFT: {
-
-			}
-			break;
-			case SDLK_RIGHT: {
-
-			}
-			break;
+								break;
+								// ... Handle other events here. **IMPLEMENTATION OF MOUSE DETECTIONS**
 			}
 		}
-		
-		thread t1{ [](int & l, int & k, int w, int h, vec3* f, SDL_Rect rec, SDL_Renderer* rend) {
-			//cout << "ENTERED THREAD";
-			size_t pixel_index = k * w + l;
-			int ir = int(255.99 * f[pixel_index].r());
-			int ig = int(255.99 * f[pixel_index].g());
-			int ib = int(255.99 * f[pixel_index].b());
-			SDL_SetRenderDrawColor(rend, ir, ig, ib, 255);
-			rec.x = l;
-			rec.y = h - (k + 1);
-			rec.w = 1;
-			rec.h = 1;
-			SDL_RenderFillRect(rend, &rec);
-			SDL_RenderPresent(rend);
-			if (k == h) {
-				k = 0;
+
+		size_t pixel_index = j * width + i;
+		int ir = int(255.99 * fb[pixel_index].r());
+		int ig = int(255.99 * fb[pixel_index].g());
+		int ib = int(255.99 * fb[pixel_index].b());
+		SDL_SetRenderDrawColor(renderer, ir, ig, ib, 255);
+		SDL_Rect rectangle;
+		rectangle.x = i;
+		rectangle.y = height - (j + 1);
+		rectangle.w = 1;
+		rectangle.h = 1;
+		SDL_RenderFillRect(renderer, &rectangle);
+		SDL_RenderPresent(renderer);
+		if (j == height) {
+			j = 0;
+		}
+		else {
+			if (i < width) {
+				i++;
 			}
 			else {
-				if (l < w) {
-					l++;
-				}
-				else {
-					l = 0;
-					k++;
-				}
+				i = 0;
+				j++;
 			}
-		},ref(i),ref(j),width,height,fb,rectangle,renderer};
-		t1.join();
+		}
 	}
 
 	// clean up
 	checkCudaErrors(cudaDeviceSynchronize());
-	free_world <<<1, 1 >>> (d_list, d_world, d_camera);
+	free_world << <1, 1 >> > (d_list, d_world, d_camera);
 	checkCudaErrors(cudaGetLastError());
 	checkCudaErrors(cudaFree(d_camera));
 	checkCudaErrors(cudaFree(d_world));

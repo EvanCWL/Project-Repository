@@ -57,10 +57,10 @@ vec3 color(const ray& r, hitable *world, int depth) {
 }
 
 int main() {
-	ofstream img("twelveth.ppm");
-	int nx = 1920;
-	int ny = 1080;
-	int ns = 100;
+	ofstream img("testing.ppm");
+	int nx = 200;
+	int ny = 100;
+	int ns = 10;
 	img << "P3\n" << nx << " " << ny << "\n255\n";
 	hitable *list[5];
 	float R = cos(M_PI / 4);
