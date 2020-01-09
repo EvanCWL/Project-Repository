@@ -98,6 +98,7 @@
     <ClInclude Include="bvh.h" />
     <ClInclude Include="aabb.h" />
     <ClInclude Include="display.h" />
+    <ClInclude Include="semaphore.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

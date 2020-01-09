@@ -88,7 +88,6 @@ __global__ void render(vec3* fb, int max_x, int max_y, int ns, camera** cam, hit
 	col[1] = sqrt(col[1]);
 	col[2] = sqrt(col[2]);
 	fb[pixel_index] = col;
-	//win->draw(i, j, col[0], col[1], col[2]);
 }
 
 #define RND (curand_uniform(&local_rand_state))
@@ -168,7 +167,7 @@ void foo(int width, int height, int tx, int ty,int ns,display* window ,vec3* fb 
 }
 
 int main(int argc, char* argv[]) {
-	int width = 400;
+	int width = 200;
 	int height = 100;
 	int ns = 10;
 	int tx = 16;
@@ -212,7 +211,18 @@ int main(int argc, char* argv[]) {
 	window = new display("joking", width, height);
 
 	while (window->get_status()) {
+		SDL_Event e;
+		while (SDL_PollEvent(&e) != 0)
+		{
+			if (e.type == SDL_QUIT)
+			{
+				window->close();
+			}
+		}
 		window->clear_render();
+
+		/*std::thread execute(foo, width, height, tx, ty, ns, window, fb, d_camera, d_world, d_rand_state);
+		execute.join();*/
 
 		//Render Scene
 		clock_t start, stop;
@@ -234,10 +244,9 @@ int main(int argc, char* argv[]) {
 		double timer_seconds = ((double)(stop - start)) / CLOCKS_PER_SEC;
 		std::cerr << "took " << timer_seconds << " seconds.\n";
 
-		window->present_render();
+		window->update(fb);
 
-		/*std::thread execute(foo,width,height,tx,ty,ns,window,fb,d_camera,d_world,d_rand_state);
-		execute.join();*/
+		
 	}
 
 	// clean up
