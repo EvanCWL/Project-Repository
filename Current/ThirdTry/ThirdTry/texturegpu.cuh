@@ -23,10 +23,8 @@ public:
     }
 
     __device__ void set_rgba(int x, int y, Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
-        access(x, y) = (r >> fmt_->Rloss) << fmt_->Rshift |
-            (g >> fmt_->Gloss) << fmt_->Gshift |
-            (b >> fmt_->Bloss) << fmt_->Bshift |
-            ((a >> fmt_->Aloss) << fmt_->Ashift & fmt_->Amask);
+        access(x, y) = (r >> fmt_->Rloss) << fmt_->Rshift |(g >> fmt_->Gloss) << fmt_->Gshift |
+            (b >> fmt_->Bloss) << fmt_->Bshift | ((a >> fmt_->Aloss) << fmt_->Ashift & fmt_->Amask);
     }
 
     void copy_to_cpu();

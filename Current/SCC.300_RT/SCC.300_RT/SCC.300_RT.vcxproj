@@ -89,8 +89,6 @@
     <ClInclude Include="camera.h" />
     <ClInclude Include="cuda_utils.h" />
     <ClInclude Include="math.h" />
-    <ClInclude Include="texturegpu.h" />
-    <ClInclude Include="window.h" />
     <ClInclude Include="hitable.h" />
     <ClInclude Include="hitable_list.h" />
     <ClInclude Include="material.h" />

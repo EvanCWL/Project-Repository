@@ -22,9 +22,7 @@
 #include "device_launch_parameters.h"
 
 template <typename... Args>
-void launch_2D_texture_kernel(void (*kernel)(TextureGPU*, Args...),
-    const Config& config, TextureGPU* tex,
-    Args... args) {
+void launch_2D_texture_kernel(void (*kernel)(TextureGPU*, Args...), const Config& config, TextureGPU* tex, Args... args) {
     dim3 blocks = config.blocks(tex->get_width(), tex->get_height());
 
     kernel << <blocks, config.threads >> > (tex, std::forward<Args>(args)...);
@@ -188,9 +186,7 @@ int main() {
 
             window.clear_render();
 
-            launch_2D_texture_kernel(chapter_11_kernel, gConfig, viewport.get(),
-                gCamera, (Hitable**)hitable_objects,
-                d_rand_state);
+            launch_2D_texture_kernel(chapter_11_kernel, gConfig, viewport.get(), gCamera, (Hitable**)hitable_objects, d_rand_state);
 
             viewport->copy_to_renderer(window.get_renderer());
 

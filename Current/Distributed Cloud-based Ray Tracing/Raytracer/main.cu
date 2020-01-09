@@ -3,19 +3,13 @@
 #include <time.h>
 #include <float.h>
 #include <curand_kernel.h>
-#include "vec3.h"
-#include "ray.h"
 #include "sphere.h"
 #include "hitable_list.h"
 #include "camera.h"
 #include "material.h"
 #include "device_launch_parameters.h"
-#include <texture_fetch_functions.h>
-#include <SDL.h>
-#include <Windows.h>
-#include <gl/GL.h>
-
-using namespace std;
+#include "display.h"
+#include <thread>
 
 // limited version of checkCudaErrors from helper_cuda.h in CUDA examples
 #define checkCudaErrors(val) check_cuda( (val), #val, __FILE__, __LINE__ )
@@ -94,6 +88,7 @@ __global__ void render(vec3* fb, int max_x, int max_y, int ns, camera** cam, hit
 	col[1] = sqrt(col[1]);
 	col[2] = sqrt(col[2]);
 	fb[pixel_index] = col;
+	//win->draw(i, j, col[0], col[1], col[2]);
 }
 
 #define RND (curand_uniform(&local_rand_state))
@@ -150,34 +145,37 @@ __global__ void free_world(hitable** d_list, hitable** d_world, camera** d_camer
 	delete* d_camera;
 }
 
-void saveImage(int width, int height, vec3* fb, string output) {
-	ofstream img(output);
-	img << "P3\n" << width << " " << height << "\n255\n";
-	for (int j = height - 1; j >= 0; j--) {
-		for (int i = 0; i < width; i++) {
-			size_t pixel_index = j * width + i;
-			int ir = int(255.99 * fb[pixel_index].r());
-			int ig = int(255.99 * fb[pixel_index].g());
-			int ib = int(255.99 * fb[pixel_index].b());
-			img << ir << " " << ig << " " << ib << "\n";
-		}
-	}
+void foo(int width, int height, int tx, int ty,int ns,display* window ,vec3* fb ,camera** d_camera, hitable** d_world,curandState* d_rand_state) {
+	//Render Scene
+	clock_t start, stop;
+	start = clock();
+
+	// Render our buffer
+	dim3 blocks(width / tx + 1, height / ty + 1);
+	dim3 threads(tx, ty);
+
+	render_init << <blocks, threads >> > (width, height, d_rand_state);
+	checkCudaErrors(cudaGetLastError());
+	checkCudaErrors(cudaDeviceSynchronize());
+
+	render << <blocks, threads >> > (fb, width, height, ns, d_camera, d_world, d_rand_state);
+	checkCudaErrors(cudaGetLastError());
+	checkCudaErrors(cudaDeviceSynchronize());
+
+	stop = clock();
+	double timer_seconds = ((double)(stop - start)) / CLOCKS_PER_SEC;
+	std::cerr << "took " << timer_seconds << " seconds.\n";
 }
 
 int main(int argc, char* argv[]) {
-	int width = 200;
+	int width = 400;
 	int height = 100;
 	int ns = 10;
 	int tx = 16;
 	int ty = 16;
-	bool running = true, updateDisplay = true;
-	SDL_Window* window;
-	SDL_Renderer* renderer;
-	SDL_Texture* texture;
 
 	std::cerr << "Rendering a " << width << "x" << height << " image with " << ns << " samples per pixel ";
 	std::cerr << "in " << tx << "x" << ty << " blocks.\n";
-
 
 	int num_pixels = width * height;
 	size_t fb_size = num_pixels * sizeof(vec3);
@@ -205,101 +203,41 @@ int main(int argc, char* argv[]) {
 	checkCudaErrors(cudaMalloc((void**)&d_world, sizeof(hitable*)));
 	camera** d_camera;
 	checkCudaErrors(cudaMalloc((void**)&d_camera, sizeof(camera*)));
-	create_world << <1, 1 >> > (d_list, d_world, d_camera, width, height, d_rand_state2);
+	create_world <<<1, 1 >>> (d_list, d_world, d_camera, width, height, d_rand_state2);
 	checkCudaErrors(cudaGetLastError());
 	checkCudaErrors(cudaDeviceSynchronize());
 
-	// Output FB to SDL
+	// Output FB as Image
+	display* window;
+	window = new display("joking", width, height);
 
-	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-		std::cout << "[Error] Failed to initialise SDL2";
-		return 1;
-	}
+	while (window->get_status()) {
+		window->clear_render();
 
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+		//Render Scene
+		clock_t start, stop;
+		start = clock();
 
-	window = SDL_CreateWindow("Ray Tracing", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL);
-	if (window == NULL) {
-		std::cout << SDL_GetError();
-		return 1;
-	}
+		// Render our buffer
+		dim3 blocks(width / tx + 1, height / ty + 1);
+		dim3 threads(tx, ty);
 
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	if (renderer == NULL) {
-		std::cout << SDL_GetError();
-		return 1;
-	}
+		render_init << <blocks, threads >> > (width, height, d_rand_state);
+		checkCudaErrors(cudaGetLastError());
+		checkCudaErrors(cudaDeviceSynchronize());
 
-	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_STREAMING, width, height);
-	if (texture == NULL) {
-		std::cout << SDL_GetError();
-		return 1;
-	}
+		render << <blocks, threads >> > (fb, width, height, ns, d_camera, d_world, d_rand_state);
+		checkCudaErrors(cudaGetLastError());
+		checkCudaErrors(cudaDeviceSynchronize());
 
-	//Render Scene
-	clock_t start, stop;
-	start = clock();
-	// Render our buffer
-	dim3 blocks(width / tx + 1, height / ty + 1);
-	dim3 threads(tx, ty);
-	render_init << <blocks, threads >> > (width, height, d_rand_state);
-	checkCudaErrors(cudaGetLastError());
-	checkCudaErrors(cudaDeviceSynchronize());
-	render << <blocks, threads >> > (fb, width, height, ns, d_camera, d_world, d_rand_state);
-	checkCudaErrors(cudaGetLastError());
-	checkCudaErrors(cudaDeviceSynchronize());
-	stop = clock();
-	double timer_seconds = ((double)(stop - start)) / CLOCKS_PER_SEC;
-	std::cerr << "took " << timer_seconds << " seconds.\n";
+		stop = clock();
+		double timer_seconds = ((double)(stop - start)) / CLOCKS_PER_SEC;
+		std::cerr << "took " << timer_seconds << " seconds.\n";
 
-	int j = 0;
-	int i = 0;
-	while (running) {
-		// Poll for user input events
-		SDL_Event event;
-		while (SDL_PollEvent(&event)) {
-			switch (event.type) {
-			case SDL_QUIT: {
-				running = false;
-			}
-						 break;
-			case SDL_WINDOWEVENT: {
-				if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
-					width = (uint32_t)event.window.data1;
-					height = (uint32_t)event.window.data2;
-				}
-			}
-								break;
-								// ... Handle other events here. **IMPLEMENTATION OF MOUSE DETECTIONS**
-			}
-		}
+		window->present_render();
 
-		size_t pixel_index = j * width + i;
-		int ir = int(255.99 * fb[pixel_index].r());
-		int ig = int(255.99 * fb[pixel_index].g());
-		int ib = int(255.99 * fb[pixel_index].b());
-		SDL_SetRenderDrawColor(renderer, ir, ig, ib, 255);
-		SDL_Rect rectangle;
-		rectangle.x = i;
-		rectangle.y = height - (j + 1);
-		rectangle.w = 1;
-		rectangle.h = 1;
-		SDL_RenderFillRect(renderer, &rectangle);
-		SDL_RenderPresent(renderer);
-		if (j == height) {
-			j = 0;
-		}
-		else {
-			if (i < width) {
-				i++;
-			}
-			else {
-				i = 0;
-				j++;
-			}
-		}
+		/*std::thread execute(foo,width,height,tx,ty,ns,window,fb,d_camera,d_world,d_rand_state);
+		execute.join();*/
 	}
 
 	// clean up
@@ -311,11 +249,6 @@ int main(int argc, char* argv[]) {
 	checkCudaErrors(cudaFree(d_list));
 	checkCudaErrors(cudaFree(d_rand_state));
 	checkCudaErrors(cudaFree(fb));
-
-
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
 
 	cudaDeviceReset();
 
