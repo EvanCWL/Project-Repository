@@ -24,7 +24,8 @@ public:
 
 	SDL_Window* window;
 	SDL_Renderer* renderer;
-	SDL_Texture* texture;
+	//SDL_Texture* texture;
+
 	int max_thread = 2;
 
 	int width = 0;
@@ -54,10 +55,10 @@ display::display(const std::string& title, int width, int height) :width(width),
 		std::cout << SDL_GetError();
 	}
 	
-	texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_STREAMING, width, height);
+	/*texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_STREAMING, width, height);
 	if (texture == NULL) {
 		std::cout << SDL_GetError();
-	}
+	}*/
 	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	running = true;
 }
