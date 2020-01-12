@@ -15,9 +15,6 @@ public:
 	bool get_status() { return running; }
 	void clear_render() const { SDL_RenderClear(renderer); }
 	void present_render() const { SDL_RenderPresent(renderer); }
-	void copy_to_renderer(SDL_Renderer* renderer) {
-		SDL_RenderCopy(renderer, texture, NULL, NULL);
-	}
 	void close() { running = false; }
 	SDL_Window* get_window() { return window; }
 	SDL_Renderer* get_renderer() { return renderer; }
@@ -54,11 +51,6 @@ display::display(const std::string& title, int width, int height) :width(width),
 	if (renderer == NULL) {
 		std::cout << SDL_GetError();
 	}
-	
-	/*texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_STREAMING, width, height);
-	if (texture == NULL) {
-		std::cout << SDL_GetError();
-	}*/
 	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	running = true;
 }
@@ -73,20 +65,6 @@ inline void display::update(vec3* fb)
 {
 	for (int j = 0; j < height; j++) {
 		for (int i = 0; i < width; i++) {
-			/*std::thread thread_object([](vec3* fb, int i, int j, int width, int height, SDL_Renderer* renderer) {
-				size_t pixel_index = j * width + i;
-				int ir = int(255.99 * fb[pixel_index].r());
-				int ig = int(255.99 * fb[pixel_index].g());
-				int ib = int(255.99 * fb[pixel_index].b());
-				SDL_SetRenderDrawColor(renderer, ir, ig, ib, 255);
-				SDL_Rect rectangle;
-				rectangle.x = i;
-				rectangle.y = height - (j + 1);
-				rectangle.w = 1;
-				rectangle.h = 1;
-				SDL_RenderFillRect(renderer, &rectangle);
-				}, fb, i, j, width, height, renderer);*/
-
 			size_t pixel_index = j * width + i;
 			int ir = int(255.99 * fb[pixel_index].r());
 			int ig = int(255.99 * fb[pixel_index].g());
@@ -98,7 +76,6 @@ inline void display::update(vec3* fb)
 			rectangle.w = 1;
 			rectangle.h = 1;
 			SDL_RenderFillRect(renderer, &rectangle);
-			
 		}
 	}
 	SDL_RenderPresent(renderer);

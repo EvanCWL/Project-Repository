@@ -121,6 +121,17 @@ __global__ void create_world(hitable** d_list, hitable** d_world, camera** d_cam
 		*rand_state = local_rand_state;
 		*d_world = new hitable_list(d_list, 22 * 22 + 1 + 3);
 
+		//vec3 lookfrom(13, 2, 3);
+		//vec3 lookat(0, 0, 0);
+		//float dist_to_focus = 10.0; //(lookfrom - lookat).length();
+		//float aperture = 0.01;
+		//*d_camera = new camera(lookfrom,
+		//	lookat,
+		//	vec3(0, 1, 0),
+		//	20.0,
+		//	float(width) / float(height),
+		//	aperture,
+		//	dist_to_focus);
 		vec3 lookfrom(13, 2, 3);
 		vec3 lookat(0, 0, 0);
 		float dist_to_focus = 10.0; //(lookfrom - lookat).length();
@@ -153,11 +164,11 @@ void foo(int width, int height, int tx, int ty,int ns,display* window ,vec3* fb 
 	dim3 blocks(width / tx + 1, height / ty + 1);
 	dim3 threads(tx, ty);
 
-	render_init << <blocks, threads >> > (width, height, d_rand_state);
+	render_init <<<blocks, threads >>> (width, height, d_rand_state);
 	checkCudaErrors(cudaGetLastError());
 	checkCudaErrors(cudaDeviceSynchronize());
 
-	render << <blocks, threads >> > (fb, width, height, ns, d_camera, d_world, d_rand_state);
+	render <<<blocks, threads >>> (fb, width, height, ns, d_camera, d_world, d_rand_state);
 	checkCudaErrors(cudaGetLastError());
 	checkCudaErrors(cudaDeviceSynchronize());
 
@@ -167,8 +178,8 @@ void foo(int width, int height, int tx, int ty,int ns,display* window ,vec3* fb 
 }
 
 int main(int argc, char* argv[]) {
-	int width = 200;
-	int height = 100;
+	int width = 1280;
+	int height = 720;
 	int ns = 10;
 	int tx = 16;
 	int ty = 16;
@@ -190,7 +201,7 @@ int main(int argc, char* argv[]) {
 	checkCudaErrors(cudaMalloc((void**)&d_rand_state2, 1 * sizeof(curandState)));
 
 	// we need that 2nd random state to be initialized for the world creation
-	rand_init << <1, 1 >> > (d_rand_state2);
+	rand_init <<<1, 1 >>> (d_rand_state2);
 	checkCudaErrors(cudaGetLastError());
 	checkCudaErrors(cudaDeviceSynchronize());
 
@@ -218,11 +229,9 @@ int main(int argc, char* argv[]) {
 			{
 				window->close();
 			}
+
 		}
 		window->clear_render();
-
-		/*std::thread execute(foo, width, height, tx, ty, ns, window, fb, d_camera, d_world, d_rand_state);
-		execute.join();*/
 
 		//Render Scene
 		clock_t start, stop;
