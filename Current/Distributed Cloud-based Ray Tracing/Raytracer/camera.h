@@ -36,7 +36,7 @@ public:
 		return ray(origin + offset, lower_left_corner + s * horizontal + t * vertical - origin - offset);
 	}
 
-	void update_camera_vectors() {
+	/*void update_camera_vectors() {
 		focus_dist = (lookfrom - lookat).length();
 
 		w = unit_vector(lookfrom - lookat);
@@ -47,7 +47,7 @@ public:
 		half_height * focus_dist * v - focus_dist * w;
 		horizontal = 2 * half_width * focus_dist * u;
 		vertical = 2 * half_height * focus_dist * v;
-	}
+	}*/
 
 	vec3 origin;
 	vec3 lower_left_corner;

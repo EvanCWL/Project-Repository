@@ -92,7 +92,7 @@ __global__ void render(vec3* fb, int max_x, int max_y, int ns, camera** cam, hit
 
 #define RND (curand_uniform(&local_rand_state))
 
-__global__ void create_world(hitable** d_list, hitable** d_world, camera** d_camera, int width, int height, curandState* rand_state) {
+__global__ void create_world(hitable** d_list, hitable** d_world, camera** d_camera, int width, int height, curandState* rand_state, int move, int c_move) {
 	if (threadIdx.x == 0 && blockIdx.x == 0) {
 		curandState local_rand_state = *rand_state;
 		d_list[0] = new sphere(vec3(0, -1000.0, -1), 1000,
@@ -132,18 +132,33 @@ __global__ void create_world(hitable** d_list, hitable** d_world, camera** d_cam
 		//	float(width) / float(height),
 		//	aperture,
 		//	dist_to_focus);
-		vec3 lookfrom(13, 2, 3);
-		vec3 lookat(0, 0, 0);
-		float dist_to_focus = 10.0; //(lookfrom - lookat).length();
-		float aperture = 0.01;
-		*d_camera = new camera(lookfrom,
-			lookat,
-			vec3(0, 1, 0),
-			20.0,
-			float(width) / float(height),
-			aperture,
-			dist_to_focus);
+
+		//vec3 lookfrom(move, 2, c_move);
+		//vec3 lookat(0, 0, 0);
+		//float dist_to_focus = 10.0; //(lookfrom - lookat).length();
+		//float aperture = 0.01;
+		//*d_camera = new camera(lookfrom,
+		//	lookat,
+		//	vec3(0, 1, 0),
+		//	20.0,
+		//	float(width) / float(height),
+		//	aperture,
+		//	dist_to_focus);
 	}
+}
+
+__global__ void move_camera(camera** d_camera, int move, int c_move, int width, int height) {
+	vec3 lookfrom(move, 2, c_move);
+	vec3 lookat(0, 0, 0);
+	float dist_to_focus = 10.0; //(lookfrom - lookat).length();
+	float aperture = 0.01;
+	*d_camera = new camera(lookfrom,
+		lookat,
+		vec3(0, 1, 0),
+		20.0,
+		float(width) / float(height),
+		aperture,
+		dist_to_focus);
 }
 
 __global__ void free_world(hitable** d_list, hitable** d_world, camera** d_camera) {
@@ -178,12 +193,13 @@ void foo(int width, int height, int tx, int ty,int ns,display* window ,vec3* fb 
 }
 
 int main(int argc, char* argv[]) {
-	int width = 1280;
-	int height = 720;
+	int width = 200;
+	int height = 100;
 	int ns = 10;
 	int tx = 16;
 	int ty = 16;
-
+	int d_move = 13;
+	int c_move = 3;
 	std::cerr << "Rendering a " << width << "x" << height << " image with " << ns << " samples per pixel ";
 	std::cerr << "in " << tx << "x" << ty << " blocks.\n";
 
@@ -213,7 +229,7 @@ int main(int argc, char* argv[]) {
 	checkCudaErrors(cudaMalloc((void**)&d_world, sizeof(hitable*)));
 	camera** d_camera;
 	checkCudaErrors(cudaMalloc((void**)&d_camera, sizeof(camera*)));
-	create_world <<<1, 1 >>> (d_list, d_world, d_camera, width, height, d_rand_state2);
+	create_world << <1, 1 >> > (d_list, d_world, d_camera, width, height, d_rand_state2, d_move, c_move);
 	checkCudaErrors(cudaGetLastError());
 	checkCudaErrors(cudaDeviceSynchronize());
 
@@ -232,6 +248,10 @@ int main(int argc, char* argv[]) {
 
 		}
 		window->clear_render();
+
+		move_camera << <1, 1 >> > (d_camera, d_move, c_move, width, height);
+		checkCudaErrors(cudaGetLastError());
+		checkCudaErrors(cudaDeviceSynchronize());
 
 		//Render Scene
 		clock_t start, stop;
@@ -255,7 +275,10 @@ int main(int argc, char* argv[]) {
 
 		window->update(fb);
 
-		
+		d_move = d_move + 1;
+		c_move = c_move - 2;
+		std::cerr << d_move << "\n";
+		std::cerr << c_move << "\n";
 	}
 
 	// clean up
